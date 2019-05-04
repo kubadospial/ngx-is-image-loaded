@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:project": "ng build ngx-is-image-loaded",
-    "build:github-page": "ng build --prod --base-href \"ngx-is-image-loaded\" && ngh --dir dist/is-image-loaded"
+    "build:github-page": "ng build --prod --base-href \"ngx-is-image-loaded\" && ngh --dir dist/isImageLoaded"
   },
   "private": true,
   "dependencies": {

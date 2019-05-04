@@ -8,7 +8,7 @@ Directive requires Rxjs version >= 6.0.0.
 ```
 
 ## Demo
-Check the [link](https://kubadospial.github.io/ngx-isImageLoaded/)
+Check the [link](https://kubadospial.github.io/ngx-is-image-loaded/)
 
 ## Usage
 
