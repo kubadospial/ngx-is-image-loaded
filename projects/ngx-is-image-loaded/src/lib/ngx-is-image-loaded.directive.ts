@@ -3,11 +3,11 @@ import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Directive({
-    selector: '[ngxLoadImageChecker]'
+    selector: '[ngxIsImageLoaded]'
 })
 export class NgxIsImageLoadedDirective implements AfterViewInit, OnDestroy {
     @Input() url: string | Array<string>;
-    @Output() imageLoaded = new EventEmitter<boolean>();
+    @Output() isImageLoaded = new EventEmitter<boolean>();
 
     private _destory$ = new Subject<void>();
     private _indexOfLoadedImages = 0;
@@ -43,7 +43,7 @@ export class NgxIsImageLoadedDirective implements AfterViewInit, OnDestroy {
     private _isLoaded() {
         this._indexOfLoadedImages++;
         if (this._indexOfLoadedImages === this._indexForApproval) {
-            this.imageLoaded.emit(true);
+            this.isImageLoaded.emit(true);
         }
     }
 }
