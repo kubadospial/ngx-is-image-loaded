@@ -22,7 +22,7 @@ import NgxIsImageLoadedModule
 import { NgxIsImageLoadedModule } from 'ngx-is-image-loaded';
 
 @NgModule({
-  declarations: [...],
+  declarations: [SomeComponent, ...],
   imports: [
     ...
     NgxIsImageLoadedModule
@@ -64,7 +64,7 @@ And
 url: string | Array<string>;
 
 ```
-setting: can take string or array of strings with urls;
+url: can take string or array of strings with urls;
 ```
 
 ### Outputs:
