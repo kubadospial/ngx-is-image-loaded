@@ -1,0 +1,41 @@
+.big-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 90vh;
+  &__title {
+    font-size: 17px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  &__container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px #636363;
+    background: linear-gradient(to right, #ffffff, #c7c7c7);
+    background-size: 400% 400%;
+    animation: movingBackground 4s ease infinite;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes movingBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
