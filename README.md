@@ -1,27 +1,87 @@
-# IsImageLoaded
+# NgxIsImageLoaded
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+If You are looking for simple Angular 6+ directive that tells if an image is loaded. This is the place!
 
-## Development server
+## Note
+```
+Directive requires Rxjs version >= 6.0.0.
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Demo
+Check the [link](https://kubadospial.github.io/ngx-isImageLoaded/)
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Install ngx-positioner
+- npm: ``` $ npm install ngx-is-image-loaded ``` 
+- yarn: ``` $ yarn add ngx-is-image-loaded ``` 
 
-## Build
+import NgxIsImageLoadedModule
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```js
+import { NgxIsImageLoadedModule } from 'ngx-is-image-loaded';
 
-## Running unit tests
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...
+    NgxIsImageLoadedModule
+  ],
+  providers: []
+})
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Use NgxIsImageLoadedDirective
+```js
+@Component(...)
+export class SomeComponent {
+  ...
+  isImgLoaded = false;
+  
+  url = 'https://123.com/image.jpg';
+  // or
+  // url = ['https://123.com/image.jpg','https://123.com/image.jpg','https://123.com/image.jpg'];
 
-## Running end-to-end tests
+  onImageLoaded(isLoaded: boolean) {
+    this.isImageLoaded = isLoaded;
+  }
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+And
+```html
+<div class="container"
+       ngxIsImageLoaded
+       (isImageLoaded)="onImageLoaded($event)"
+       [url]="url">
+    <img alt="image"
+         src="https://123.com/image.jpg"
+         *ngIf="isImgLoaded">
+  </div>
+```
 
-## Further help
+## Directive
+### Inputs:
+url: string | Array<string>;
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+setting: can take string or array of strings with urls;
+```
+
+### Outputs:
+isImageLoaded: boolean;
+```
+isImageLoaded: EventEmitter that emits boolean is url or array of urls is loaded;
+```
+
+## Contributing
+1. Fork repo.
+2. `npm install / yarn`.
+3. Make your changes.
+4. Add your tests.
+5. `npm run test / yarn start test`.
+6. `npm run build / yarn start build`.
+7. After all tests are passing. 
+8. Commit, push, PR.
+
+## License
+Released under the terms of MIT License.
