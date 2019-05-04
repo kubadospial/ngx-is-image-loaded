@@ -12,13 +12,13 @@
       <app-loader></app-loader>
     </ng-template>
   </div>
-  <ng-container [@imageEnter]="isImageLoaded">
-    <div class="big-picture__title">without NgxIsImageLoaded:</div>
-    <div class="big-picture__container">
-      <img alt="big image"
-           class="big-picture__image"
-           src="https://images.pexels.com/photos/1575/city-man-person-lights.jpg?1112333"
-           *ngIf="isImageLoaded">
-    </div>
-  </ng-container>
+  <div class="big-picture__title"
+       *ngIf="isImageLoaded">without NgxIsImageLoaded:</div>
+  <div class="big-picture__container"
+       [@imageEnter]="isImageLoaded ? 'loaded' : 'notLoaded'">
+    <img alt="big image"
+         class="big-picture__image"
+         src="https://images.pexels.com/photos/1575/city-man-person-lights.jpg?1112333"
+         *ngIf="isImageLoaded">
+  </div>
 </div>
