@@ -7,14 +7,14 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
   styleUrls: ['./app.component.scss'],
   animations: [
     trigger('imageEnter', [
-      state('open', style({
-        height: '200px'
+      state('loaded', style({
+        height: '*'
       })),
-      state('closed', style({
-        height: '100px'
+      state('notLoaded', style({
+        height: '0px'
       })),
-      transition('open => closed', [
-        animate('3s'),
+      transition('notLoaded => loaded', [
+        animate('1s')
       ])
     ])
   ]
