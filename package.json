@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:project": "ng build ngx-is-image-loaded",
+    "build:github-page": "ng build --prod --base-href \"ngx-is-image-loaded\" && ngh --dir dist/is-image-loaded"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
+    "ngx-is-image-loaded": "^1.0.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

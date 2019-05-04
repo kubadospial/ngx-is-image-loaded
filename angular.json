@@ -134,7 +134,7 @@
         }
       }
     },
-    "ngx-isImageLoaded": {
+    "ngx-is-image-loaded": {
       "root": "projects/ngx-is-image-loaded",
       "sourceRoot": "projects/ngx-is-image-loaded/src",
       "projectType": "library",
