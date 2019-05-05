@@ -22,7 +22,15 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 export class AppComponent {
   isImageLoaded = false;
 
+  url1 = 'https://images.pexels.com/photos/1575/city-man-person-lights.jpg?' + this.getRandomNumber;
+  url2 = 'https://images.pexels.com/photos/1575/city-man-person-lights.jpg?' + this.getRandomNumber;
+
   onImageLoaded(isLoaded: boolean) {
     this.isImageLoaded = isLoaded;
   }
+
+  get getRandomNumber() {
+    return Math.round(Math.random() * 10000);
+  }
+
 }

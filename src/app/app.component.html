@@ -1,24 +1,24 @@
 <div class="big-picture">
-  <div class="big-picture__title">with NgxIsImageLoaded:</div>
-  <div class="big-picture__container"
-       ngxIsImageLoaded
-       (isImageLoaded)="onImageLoaded($event)"
-       [url]="'https://images.pexels.com/photos/1575/city-man-person-lights.jpg?asd'">
-    <img alt="big image"
-         class="big-picture__image"
-         src="https://images.pexels.com/photos/1575/city-man-person-lights.jpg?asd"
-         *ngIf="isImageLoaded; else loader">
-    <ng-template #loader>
-      <app-loader></app-loader>
-    </ng-template>
-  </div>
-  <div class="big-picture__title"
-       *ngIf="isImageLoaded">without NgxIsImageLoaded:</div>
-  <div class="big-picture__container"
-       [@imageEnter]="isImageLoaded ? 'loaded' : 'notLoaded'">
-    <img alt="big image"
-         class="big-picture__image"
-         src="https://images.pexels.com/photos/1575/city-man-person-lights.jpg?1112333"
-         *ngIf="isImageLoaded">
-  </div>
+     <div class="big-picture__title">with NgxIsImageLoaded:</div>
+     <div class="big-picture__container"
+          ngxIsImageLoaded
+          (isImageLoaded)="onImageLoaded($event)"
+          [url]="url1">
+          <img alt="big image"
+               class="big-picture__image"
+               src="{{url1}}"
+               *ngIf="isImageLoaded; else loader">
+          <ng-template #loader>
+               <app-loader></app-loader>
+          </ng-template>
+     </div>
+     <div class="big-picture__title"
+          *ngIf="isImageLoaded">without NgxIsImageLoaded:</div>
+     <div class="big-picture__container"
+          [@imageEnter]="isImageLoaded ? 'loaded' : 'notLoaded'">
+          <img alt="big image"
+               class="big-picture__image"
+               src="{{url2}}"
+               *ngIf="isImageLoaded">
+     </div>
 </div>
