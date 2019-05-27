@@ -52,9 +52,10 @@ And
 <div class="container"
        ngxIsImageLoaded
        (isImageLoaded)="onImageLoaded($event)"
+       [isLoadSequenced]="true"
        [url]="url">
     <img alt="image"
-         src="https://123.com/image.jpg"
+         src="{{url}}"
          *ngIf="isImgLoaded">
   </div>
 ```
@@ -64,7 +65,13 @@ And
 url: string | Array<string>;
 
 ```
-url: can take string or array of strings with urls;
+url input can take string or array of strings with urls;
+```
+isLoadSequenced: boolean;
+```
+If You want to use array of string in url input, You can load every url sequentially;
+
+Default value: false;
 ```
 
 ### Outputs:

@@ -4291,9 +4291,10 @@ ng-packagr@^4.2.0:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-is-image-loaded@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-is-image-loaded/-/ngx-is-image-loaded-1.0.0.tgz#c901380a9fdcbf074d3bbae203121a3c62d39d77"
+ngx-is-image-loaded@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-is-image-loaded/-/ngx-is-image-loaded-1.0.2.tgz#c1d1d5ad5e0625c7a79e7a0e50dd5b0ae11b2733"
+  integrity sha512-YSE9hfBAetuJL9T4HuvcGrv/K1Rx0EBzVD2cMZZz+1CI/SvIkg+KW6vF4dPuuU+M3qpYAYG6qKElSOic5R8VpA==
   dependencies:
     tslib "^1.9.0"
 

@@ -7,9 +7,11 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class NgxIsImageLoadedDirective implements AfterViewInit, OnDestroy {
     @Input() url: string | Array<string>;
+    @Input() isLoadSequenced = false;
     @Output() isImageLoaded = new EventEmitter<boolean>();
 
     private _destory$ = new Subject<void>();
+    private _nextSequence$ = new Subject<void>();
     private _indexOfLoadedImages = 0;
     private _indexForApproval = 0;
 
@@ -21,8 +23,15 @@ export class NgxIsImageLoadedDirective implements AfterViewInit, OnDestroy {
             this._loadChecker(this.url);
         } else {
             this._indexForApproval = this.url.length;
-            for (const url of this.url) {
-                this._loadChecker(url);
+            if (!this.isLoadSequenced) {
+                for (const url of this.url) {
+                    this._loadChecker(url);
+                }
+            } else {
+                this._loadChecker(this.url[this._indexOfLoadedImages]);
+                this._nextSequence$.pipe(
+                    takeUntil(this._destory$)
+                ).subscribe(_ => this._loadChecker(this.url[this._indexOfLoadedImages]));
             }
         }
     }
@@ -36,14 +45,17 @@ export class NgxIsImageLoadedDirective implements AfterViewInit, OnDestroy {
         const img = new Image();
         img.src = url;
         fromEvent(img, 'load').pipe(
-            takeUntil(this._destory$)
+            takeUntil(this._nextSequence$)
         ).subscribe(_ => this._isLoaded());
     }
 
     private _isLoaded() {
         this._indexOfLoadedImages++;
+        if (this.isLoadSequenced && this._indexOfLoadedImages < this._indexForApproval) {
+            this._nextSequence$.next();
+        }
         if (this._indexOfLoadedImages === this._indexForApproval) {
-            this.isImageLoaded.emit(true);
+            this.isImageLoaded.next(true);
         }
     }
 }
